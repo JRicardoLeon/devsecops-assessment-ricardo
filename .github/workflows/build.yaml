@@ -1,18 +1,16 @@
 name: Build
 
 on:
+  pull_request:
+    branches:
+      - feature/*
+      - develop
+      - main
   workflow_dispatch:
-  workflow_run:
-    workflows: 
-      - SonarQube
-      - Dependency Check
-    types:
-      - completed
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}  # Ejecutar solo si los workflows previos han sido exitosos
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
