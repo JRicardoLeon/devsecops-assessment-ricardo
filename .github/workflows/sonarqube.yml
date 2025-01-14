@@ -7,7 +7,7 @@ on:
       - develop
       - main
 jobs:
-   build:
+   sonarqube:
     name: Build and analyze
     runs-on: ubuntu-latest
     steps:
