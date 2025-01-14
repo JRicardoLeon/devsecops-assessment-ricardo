@@ -12,8 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    needs: [sonarqube, dependency-check]
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}  # Ejecutar solo si los workflows previos han sido exitosos
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
